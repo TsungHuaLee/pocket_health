@@ -1,0 +1,23 @@
+{
+  "type": "template",
+  "altText": "this is a buttons template",
+  "template": {
+    "type": "buttons",
+    "actions": [
+      {
+        "type": "postback",
+        "label": "高血壓不能吃什麼? (例句)",
+        "text": "高血壓不能吃什麼? (例句)",
+        "data": "counseling_s1o1"
+      },
+      {
+        "type": "postback",
+        "label": "也可以自行輸入您的問題哦",
+        "text": "也可以自行輸入您的問題哦",
+        "data": "counseling_s1o2"
+      }
+    ],
+    "title": "我可以讓你詢問",
+    "text": "請選擇您的輸入方式"
+  }
+}

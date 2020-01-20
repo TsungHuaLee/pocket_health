@@ -1,0 +1,82 @@
+{
+  "type": "template",
+  "altText": "this is a carousel template",
+  "template": {
+    "type": "carousel",
+    "actions": [],
+    "columns": [
+      {
+        "thumbnailImageUrl": "https://c2.staticflickr.com/2/1789/41272115600_ef8cd0f62b_m.jpg",
+        "title": "70％青壯族高血壓不自知，遠離高血壓7個養生之道",
+        "text": "【早安健康／立達診所 梁育群 營養師】根據衛福部最新的死因統計資料顯示，十大死因以慢性病為主，而其中三項均與高血壓及其相",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "前往",
+            "uri": "https://www.edh.tw/article/14052"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://live.staticflickr.com/65535/48534915351_fd36071131_m.jpg",
+        "title": "高血壓、高血脂，有哪些飲食禁區？食材紅綠燈一表隨時看！",
+        "text": "【早安健康／李姿儀（瑞之盟營養機構營養師）】高血壓合併高脂血症飲食指南：控制脂肪和膽固醇的攝取高血壓與高血脂症有密切相關",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "前往",
+            "uri": "https://www.edh.tw/article/22102"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://farm6.staticflickr.com/5681/22429515464_791471091e_m.jpg",
+        "title": "\"【早安健康精選書摘】高血壓特殊病患的飲食調養   高血壓特殊人群主要包括：老年",
+        "text": "\"【早安健康精選書摘】高血壓特殊病患的飲食調養   高血壓特殊人群主要包括：老年高血壓患者、妊娠高血壓患者、兒童高血壓患",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "前往",
+            "uri": "https://www.edh.tw/article/10658"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://c1.staticflickr.com/5/4563/24507442778_b1fcff0918_m.jpg",
+        "title": "別再放任血壓暴衝！研究：走路能對抗高血壓",
+        "text": "【早安健康編輯部綜合外電】肥胖是高血壓和心血管疾病的危險因子之一，不只風險遠高於正常體重的人，據統計，5成的肥胖者同時有",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "前往",
+            "uri": "https://www.edh.tw/article/17238"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://farm4.staticflickr.com/3874/14691006226_f073a000c3_m.jpg",
+        "title": "少鹽飲食戰勝高血壓、心臟病",
+        "text": "\"你知道嗎？中風和心臟病患者有過半都患有高血壓，而高血壓則可能是被你吃出來的！  「吃太鹹」正是高血壓的肇因之一，研究顯",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "前往",
+            "uri": "https://www.edh.tw/article/2700"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://jubilee-live.flickr.com/65535/48715658788_6df48ee0ca_m.jpg",
+        "title": "高血壓傷腦，失智風險達1.7倍！3類型高血壓該如何改善？",
+        "text": "【早安健康／張承宇報導】高血壓帶來的問題。除了我們熟知的動脈硬化、中風、心肌梗塞以外，近年研究更發現，高血壓還可能會傷害",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "前往",
+            "uri": "https://www.edh.tw/article/22262"
+          }
+        ]
+      }
+    ]
+  }
+}

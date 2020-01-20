@@ -1,0 +1,23 @@
+{
+  "type": "template",
+  "altText": "this is a buttons template",
+  "template": {
+    "type": "buttons",
+    "actions": [
+      {
+        "type": "postback",
+        "label": "身體",
+        "text": "身體",
+        "data": "assessment_s1o1_s2o1"
+      },
+      {
+        "type": "postback",
+        "label": "心理",
+        "text": "心理",
+        "data": "assessment_s1o2_s2o2"
+      }
+    ],
+    "title": "您想評估身體或心理的狀況?",
+    "text": "."
+  }
+}

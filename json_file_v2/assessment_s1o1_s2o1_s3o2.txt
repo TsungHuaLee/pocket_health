@@ -1,0 +1,22 @@
+{
+  "type": "template",
+  "altText": "this is a confirm template",
+  "template": {
+    "type": "confirm",
+    "actions": [
+      {
+        "type": "postback",
+        "label": "有",
+        "text": "有",
+        "data": "assessment_s1o1_s2o2_s3o2_s4o1"
+      },
+      {
+        "type": "postback",
+        "label": "沒有",
+        "text": "沒有",
+        "data": "assessment_s1o1_s2o2_s3o2_s4o2"
+      }
+    ],
+    "text": "尿液有沒有出現很多泡泡或出現水腫等情形?"
+  }
+}

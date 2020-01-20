@@ -1,0 +1,22 @@
+{
+  "type": "template",
+  "altText": "this is a confirm template",
+  "template": {
+    "type": "confirm",
+    "actions": [
+      {
+        "type": "postback",
+        "label": "肚臍以上疼痛",
+        "text": "肚臍以上疼痛",
+        "data": "assessment_s1o1_s2o4_s3o4_s4o1"
+      },
+      {
+        "type": "postback",
+        "label": "肚臍以下疼痛",
+        "text": "肚臍以下疼痛",
+        "data": "assessment_s1o1_s2o4_s3o4_s4o2"
+      }
+    ],
+    "text": "肚臍以上疼痛 或 肚臍以下疼痛?"
+  }
+}

@@ -16,16 +16,16 @@ def create_rich_menu():
         areas=[
             RichMenuArea(
                 bounds=RichMenuBounds(x=0, y=0, width=1250, height=843),
-                action=PostbackAction(label='postback', data='richmenu_chronic')),
+                action=PostbackAction(label='postback', data='richmenu_chronic', display_text='我想更瞭解慢性病')),
             RichMenuArea(
                 bounds=RichMenuBounds(x=1250, y=0, width=1250, height=843),
-                action=PostbackAction(label='postback', data='richmenu_goodbody')),
+                action=PostbackAction(label='postback', data='richmenu_assessment', display_text='身體狀況評估')),
             RichMenuArea(
                 bounds=RichMenuBounds(x=0, y=843, width=1250, height=843),
-                action=PostbackAction(label='postback', data='richmenu_health')),
+                action=PostbackAction(label='postback', data='richmenu_counseling', display_text='健康諮詢')),
             RichMenuArea(
                 bounds=RichMenuBounds(x=1250, y=843, width=1250, height=843),
-                action=PostbackAction(label='postback', data='richmenu_supply'))
+                action=PostbackAction(label='postback', data='richmenu_supply', display_text='為您推薦'))
                 ]
     )
     rich_menu_id = line_bot_api.create_rich_menu(rich_menu=rich_menu_to_create)
@@ -33,15 +33,21 @@ def create_rich_menu():
     with open("rich-menu-id.txt", "a+") as fp:
         fp.write(rich_menu_id)
 
+    return rich_menu_id
+
 def upload_png_to_richmenu(rich_menu_id):
-    file_path = "linebot-rich-menu_2500x1686.png"
+    file_path = "linebot-rich-menu_2500x1686_v2.png"
     content_type = "image/png"
     with open(file_path, 'rb') as f:
         line_bot_api.set_rich_menu_image(rich_menu_id, content_type, f)
+    return True
     
 def set_default_rich_menu(rich_menu_id):
     line_bot_api.set_default_rich_menu(rich_menu_id)
 
 if __name__ == "__main__":
-    # upload_png_to_richmenu("richmenu-4f2e64918ea925fafab80df6c49f1814")
-    # set_default_rich_menu("richmenu-4f2e64918ea925fafab80df6c49f1814")
+    rich_menu_id = create_rich_menu()
+    status = upload_png_to_richmenu(rich_menu_id)
+    if(status==True):
+        set_default_rich_menu(rich_menu_id)
+    print("Successfully")

@@ -25,6 +25,7 @@ line_bot_api = LineBotApi(Line_Access_Token)
 handler = WebhookHandler(channel_secret)
 parser = WebhookParser(channel_secret)
 
+count = 0; score = 0
 
 @csrf_exempt
 def callback(request):
@@ -33,20 +34,23 @@ def callback(request):
         signature = request.META['HTTP_X_LINE_SIGNATURE']
         body_decode = request.body.decode('utf-8')
         try:
-            events  = parser.parse(body_decode, signature)
+            events = parser.parse(body_decode, signature)
             for event in events:
-                print(event)
-                print(event.postback)
+                print("event: ", event, ", postback data: ", event.postback.data)
                 if (event.type == "postback"):
                     timestamp = event.timestamp
                     source = event.source
                     reply_token  = event.reply_token
                     data = event.postback.data
-                    response_file_name = os.path.join('json_file', data+'.txt')
+                    response_file_name = os.path.join('json_file_v2', data+'.txt')
                     if(os.path.exists(response_file_name)):
                         reply_button(reply_token , response_file_name)
                     else:
-                        line_bot_api.reply_message(reply_token,TextSendMessage(text='我不知道要回答什麼'))
+                        if(data.startswith('assessment_s1o2_s2o2')):
+                            print("startswith assessment_s1o2_s2o2")
+                            startPhsyAssessment(reply_token, data)
+                            return
+                        line_bot_api.reply_message(reply_token,TextSendMessage(text='抱歉我還在學習中，請換個方式跟我說'))
                 elif (event.type == "message"):
                     message = str(event.message.text)
                     line_bot_api.reply_message(reply_token,TextSendMessage(text=message))
@@ -59,6 +63,7 @@ def callback(request):
         return HttpResponseBadRequest()
 
 def reply_button(replyToken, file_name):
+    print("------------------- Start send reply button -------------------")
     import requests
     import json
     with open(file_name, 'r', encoding="UTF-8") as f:
@@ -74,4 +79,34 @@ def reply_button(replyToken, file_name):
         "messages":[template]
     }
     r = requests.post(url, data=json.dumps(body_payload), headers=header_payload)
+    print(body_payload)
+    print("------------------- End send reply button -------------------")
     
+def startPhsyAssessment(reply_token, data):
+    global count
+    global score
+    print("in startPhsyAssessment")
+    count += 1
+    if(count <= 5):
+        response_file_name = os.path.join('json_file_v2', data + '_s3_' + str(count) + '.txt')
+        reply_button(reply_token , response_file_name)
+    else:
+        if(score <= 3):
+            response_file_name = os.path.join('json_file_v2', 'score_s1.txt')
+        elif(3 < score <= 6):
+            response_file_name = os.path.join('json_file_v2', 'score_s2.txt')
+        elif(7 < score <= 9):
+            response_file_name = os.path.join('json_file_v2', 'score_s3.txt')
+        elif(10 < score <= 12):
+            response_file_name = os.path.join('json_file_v2', 'score_s4.txt')
+        elif(score > 12):
+            response_file_name = os.path.join('json_file_v2', 'score_s5.txt')
+
+        # reply
+        if(os.path.exists(response_file_name)):
+            reply_button(reply_token , response_file_name)
+        else:
+            line_bot_api.reply_message(reply_token,TextSendMessage(text='抱歉我還在學習中，請換個方式跟我說'))
+
+        count = 0
+        score = 0

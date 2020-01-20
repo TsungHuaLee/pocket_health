@@ -1,0 +1,23 @@
+{
+  "type": "template",
+  "altText": "this is a buttons template",
+  "template": {
+    "type": "buttons",
+    "actions": [
+      {
+        "type": "postback",
+        "label": "願意",
+        "text": "願意",
+        "data": "assessment_s1o1"
+      },
+      {
+        "type": "postback",
+        "label": "下次好了",
+        "text": "下次好了",
+        "data": "assessment_s1o2"
+      }
+    ],
+    "title": "我可以為你做個簡單的篩檢，你願意嗎?",
+    "text": "."
+  }
+}

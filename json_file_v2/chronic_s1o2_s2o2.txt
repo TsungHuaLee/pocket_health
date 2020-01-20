@@ -1,0 +1,23 @@
+{
+  "type": "template",
+  "altText": "this is a buttons template",
+  "template": {
+    "type": "buttons",
+    "actions": [
+      {
+        "type": "postback",
+        "label": "下一題",
+        "text": "下一題",
+        "data": "chronic_s1o1_s2o1_s3o1"
+      },
+      {
+        "type": "postback",
+        "label": "不玩了",
+        "text": "不玩了",
+        "data": "chronic_s1o1_s2o1_s3o2"
+      }
+    ],
+    "title": "答錯囉",
+    "text": "每天量測血壓有助於血壓的控制"
+  }
+}

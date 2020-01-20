@@ -1,0 +1,23 @@
+{
+  "type": "template",
+  "altText": "this is a buttons template",
+  "template": {
+    "type": "buttons",
+    "actions": [
+      {
+        "type": "postback",
+        "label": "多喝水",
+        "text": "多喝水",
+        "data": "chronic_s1o1_s2o1"
+      },
+      {
+        "type": "postback",
+        "label": "喝糖水",
+        "text": "喝糖水",
+        "data": "chronic_s1o1_s2o2"
+      }
+    ],
+    "title": "低血糖發生的時候該怎麼辦",
+    "text": "請選擇您覺得此題可能的答案"
+  }
+}

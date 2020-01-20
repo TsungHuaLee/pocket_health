@@ -1,0 +1,22 @@
+{
+  "type": "template",
+  "altText": "this is a confirm template",
+  "template": {
+    "type": "confirm",
+    "actions": [
+      {
+        "type": "postback",
+        "label": "有",
+        "text": "腳有傷口",
+        "data": "assessment_s1o1_s2o1_s3o1_s4o1"
+      },
+      {
+        "type": "postback",
+        "label": "沒有",
+        "text": "腳沒有傷口",
+        "data": "assessment_s1o1_s2o1_s3o1_s4o2"
+      }
+    ],
+    "text": "腳有沒有傷口?"
+  }
+}

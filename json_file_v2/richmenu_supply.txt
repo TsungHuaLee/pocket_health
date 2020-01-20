@@ -1,0 +1,70 @@
+{
+  "type": "template",
+  "altText": "this is a carousel template",
+  "template": {
+    "type": "carousel",
+    "actions": [],
+    "columns": [
+      {
+        "thumbnailImageUrl": "https://cw1.tw/CH/images/channel_master/9f489596-469b-419f-a245-901ef2116a1b.jpg",
+        "title": "因為您看過_這3種食物，有效預防高血壓_的文章",
+        "text": "所以認為您可能會需要以下補充食品",
+        "actions": [
+          {
+            "type": "message",
+            "label": ".",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://shop.greattree.com.tw/website/uploads_product/website_1/P0000100005811_3_65210.jpg?_60062",
+        "title": "娘家 益生菌（2g/包，60包/盒) X 3盒",
+        "text": "   ◆榮獲國家生技醫療品質獎     ◆營養保健食品類 保健食品組 最高榮譽     ◆NTU101榮獲國際SCI一級",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "前往",
+            "uri": "https://shop.greattree.com.tw/greattree/index.php?action=product_detail&prod_no=P0000100005811"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://shop.greattree.com.tw/website/uploads_product/website_1/P0000100007003_1_49004.jpg?_98984",
+        "title": "三多 健康魚油軟膠囊30粒/盒(國家健康食品雙認證-可能有助於降低血中三酸甘油酯",
+        "text": "保健功效：可能有助於降低血中三酸甘油酯  ◆ 魚油原料美國藥典(USP)認證  ◆ 品質純度健康食品認證  ◆ Omeg",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "前往",
+            "uri": "https://shop.greattree.com.tw/greattree/index.php?action=product_detail&prod_no=P0000100007003"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://shop.greattree.com.tw/website/uploads_product/website_1/P0000100001162_3_5158.jpg",
+        "title": "永信 HAC 葡萄籽C口含錠(120錠/盒)",
+        "text": "◆維生素C—促進膠原蛋白形成 ◆促進鐵的吸收，抗氧化及養顏美容 ◆葡萄籽精華成分-前花青素(OPC) ◆採用嚴選代糖配方",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "前往",
+            "uri": "https://shop.greattree.com.tw/greattree/index.php?action=product_detail&prod_no=P0000100001162"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://shop.greattree.com.tw/website/uploads_product/website_1/P0000100003787_3_63447.jpg?_85627",
+        "title": "萊萃美 維生素B群錠(90粒)",
+        "text": "★維生素B群完整組合，有助於維持能量正常代謝，提升工作活力 ★上班族、壓力大者的健康好幫手 ★本產品顆粒小，容易吞服",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "前往",
+            "uri": "https://shop.greattree.com.tw/greattree/index.php?action=product_detail&prod_no=P0000100003787"
+          }
+        ]
+      }
+    ]
+  }
+}

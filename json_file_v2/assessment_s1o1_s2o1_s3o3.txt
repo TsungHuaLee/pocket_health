@@ -1,0 +1,22 @@
+{
+  "type": "template",
+  "altText": "this is a confirm template",
+  "template": {
+    "type": "confirm",
+    "actions": [
+      {
+        "type": "postback",
+        "label": "有",
+        "text": "有",
+        "data": "assessment_s1o1_s2o3_s3o3_s4o1"
+      },
+      {
+        "type": "postback",
+        "label": "沒有",
+        "text": "沒有",
+        "data": "assessment_s1o1_s2o3_s3o3_s4o2"
+      }
+    ],
+    "text": "有出現發燒、畏寒或虛弱的症狀嗎? 或是有出現嘔吐、胃口不佳等腸胃問題呢?"
+  }
+}
