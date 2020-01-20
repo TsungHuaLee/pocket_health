@@ -12,8 +12,10 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
-Line_Access_Token = {channel access token}
-Channel_Secret = {channel secret}
+LINE_ACCESS_TOKEN = {channel access token}
+CHANNEL_SECRET = {channel secret}
+ALLOWED_HOSTS = ['*']
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -26,9 +28,6 @@ SECRET_KEY = 'f-fa#nu0ficmxiluo!5gqo*l9jara1=oy&(lx0kco*f9rd$77v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
