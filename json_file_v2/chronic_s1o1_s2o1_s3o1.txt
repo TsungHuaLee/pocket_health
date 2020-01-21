@@ -1,4 +1,23 @@
 {
-  "type": "text",
-  "text": "我們目前題庫有限，期待我們的下一個版本^^"
+  "type": "template",
+  "altText": "this is a buttons template",
+  "template": {
+    "type": "buttons",
+    "actions": [
+      {
+        "type": "postback",
+        "label": "不是",
+        "text": "不是",
+        "data": "chronic_s1o1_s2o1_s3o1_s4o1"
+      },
+      {
+        "type": "postback",
+        "label": "是",
+        "text": "是",
+        "data": "chronic_s1o1_s2o1_s3o1_s4o2"
+      }
+    ],
+    "title": "只有糖尿病患者需要控制血糖、血壓和血脂",
+    "text": "請選擇您覺得此題可能的答案"
+  }
 }

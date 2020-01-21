@@ -36,11 +36,11 @@ def callback(request):
         try:
             events = parser.parse(body_decode, signature)
             for event in events:
-                print("event: ", event, ", postback data: ", event.postback.data)
+                timestamp = event.timestamp
+                source = event.source
+                reply_token  = event.reply_token
                 if (event.type == "postback"):
-                    timestamp = event.timestamp
-                    source = event.source
-                    reply_token  = event.reply_token
+                    print("event: ", event, ", postback data: ", event.postback.data)    
                     data = event.postback.data
                     response_file_name = os.path.join('json_file_v2', data+'.txt')
                     if(os.path.exists(response_file_name)):
@@ -53,7 +53,9 @@ def callback(request):
                         line_bot_api.reply_message(reply_token,TextSendMessage(text='抱歉我還在學習中，請換個方式跟我說'))
                 elif (event.type == "message"):
                     message = str(event.message.text)
-                    line_bot_api.reply_message(reply_token,TextSendMessage(text=message))
+                    if (message.startswith('我想知道')):
+                        response_file_name = os.path.join('json_file_v2', 'hypertension_articles.txt')
+                        reply_button(reply_token , response_file_name)
             return HttpResponse()
         except InvalidSignatureError:
             print('InvalidSignatureError')
@@ -85,22 +87,30 @@ def reply_button(replyToken, file_name):
 def startPhsyAssessment(reply_token, data):
     global count
     global score
-    print("in startPhsyAssessment")
+    sum_score(data)
     count += 1
+
+    print("in startPhsyAssessment, score: ", str(score), ", count: " + str(count))
+
     if(count <= 5):
-        response_file_name = os.path.join('json_file_v2', data + '_s3_' + str(count) + '.txt')
+        response_file_name = os.path.join('json_file_v2', 'assessment_s1o2_s2o2_s3_' + str(count) + '.txt')
         reply_button(reply_token , response_file_name)
     else:
         if(score <= 3):
             response_file_name = os.path.join('json_file_v2', 'score_s1.txt')
         elif(3 < score <= 6):
             response_file_name = os.path.join('json_file_v2', 'score_s2.txt')
-        elif(7 < score <= 9):
+        elif(6 < score <= 9):
             response_file_name = os.path.join('json_file_v2', 'score_s3.txt')
-        elif(10 < score <= 12):
+        elif(9 < score <= 12):
             response_file_name = os.path.join('json_file_v2', 'score_s4.txt')
         elif(score > 12):
             response_file_name = os.path.join('json_file_v2', 'score_s5.txt')
+        else:
+            response_file_name = os.path.join('json_file_v2', 'score_s1.txt')
+
+        count = 0
+        score = 0
 
         # reply
         if(os.path.exists(response_file_name)):
@@ -108,5 +118,14 @@ def startPhsyAssessment(reply_token, data):
         else:
             line_bot_api.reply_message(reply_token,TextSendMessage(text='抱歉我還在學習中，請換個方式跟我說'))
 
-        count = 0
-        score = 0
+def sum_score(data):
+    global score
+    if(data == "assessment_s1o2_s2o2_s3o1"):
+        score += 0
+    elif (data == "assessment_s1o2_s2o2_s3o2"):
+        score += 1
+    elif data == "assessment_s1o2_s2o2_s3o3":
+        score += 2
+    elif data == "assessment_s1o2_s2o2_s3o4":
+        score += 3
+    

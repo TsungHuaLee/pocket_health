@@ -8,13 +8,13 @@
         "type": "postback",
         "label": "下一題",
         "text": "下一題",
-        "data": "chronic_s1o1_s2o1_s3o1"
+        "data": "chronic_s1o1_s2o1_s3o1_s4o1_s5o1"
       },
       {
         "type": "postback",
         "label": "不玩了",
         "text": "不玩了",
-        "data": "chronic_s1o1_s2o1_s3o2"
+        "data": "chronic_s1o1_s2o1_s3o1_s4o1_s5o2"
       }
     ],
     "title": "答對囉",
