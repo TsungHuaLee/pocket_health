@@ -1,0 +1,5 @@
+{
+  "type": "sticker",
+  "packageId": "11539",
+  "stickerId": "52114110"
+}

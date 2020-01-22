@@ -56,6 +56,9 @@ def callback(request):
                             line_bot_api.reply_message(reply_token,TextSendMessage(text='抱歉我還在學習中，請換個方式跟我說'))
                 elif (event.type == "message"):
                     message = str(event.message.text)
+                    if (message.startswith('貼圖')):
+                        response_file_name = os.path.join('json_file_v2', 'sticker_json.txt')
+                        reply_button(reply_token, response_file_name)
                     if (message.startswith('我想知道')):
                         response_file_name = os.path.join('json_file_v2', 'hypertension_articles.txt')
                         reply_button(reply_token , response_file_name)
