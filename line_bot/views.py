@@ -9,7 +9,8 @@ from linebot.exceptions import InvalidSignatureError
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseBadRequest, HttpResponseForbidden, HttpResponseNotFound,HttpResponseServerError
 from django.http import HttpRequest, HttpResponse
-from linebot.models import MessageEvent, TextMessage, TextSendMessage,ImageSendMessage, TemplateSendMessage, ConfirmTemplate
+from linebot.models import TextMessage, TextSendMessage, ImageSendMessage, TemplateSendMessage, StickerSendMessage
+from linebot.models import MessageEvent, ConfirmTemplate
 from linebot.models import PostbackAction, MessageAction
 from django.conf import settings
 import os
@@ -35,6 +36,7 @@ def callback(request):
         body_decode = request.body.decode('utf-8')
         try:
             events = parser.parse(body_decode, signature)
+            print(events)
             for event in events:
                 timestamp = event.timestamp
                 source = event.source
@@ -49,8 +51,9 @@ def callback(request):
                         if(data.startswith('assessment_s1o2_s2o2')):
                             print("startswith assessment_s1o2_s2o2")
                             startPhsyAssessment(reply_token, data)
-                            return
-                        line_bot_api.reply_message(reply_token,TextSendMessage(text='抱歉我還在學習中，請換個方式跟我說'))
+                            return HttpResponse()
+                        else:
+                            line_bot_api.reply_message(reply_token,TextSendMessage(text='抱歉我還在學習中，請換個方式跟我說'))
                 elif (event.type == "message"):
                     message = str(event.message.text)
                     if (message.startswith('我想知道')):
@@ -70,15 +73,18 @@ def reply_button(replyToken, file_name):
     import json
     with open(file_name, 'r', encoding="UTF-8") as f:
         template = json.loads(f.read())
-    f.close()
     url = 'https://api.line.me/v2/bot/message/reply'
     header_payload = {
         'Content-Type': 'application/json',
         'Authorization' : 'Bearer ' + Line_Access_Token
     }
+    if(type(template) is list):
+        reply_message = template
+    else:
+        reply_message = [template]
     body_payload ={
-        "replyToken":replyToken,
-        "messages":[template]
+        "replyToken": replyToken,
+        "messages": reply_message
     }
     r = requests.post(url, data=json.dumps(body_payload), headers=header_payload)
     print(body_payload)
@@ -89,8 +95,6 @@ def startPhsyAssessment(reply_token, data):
     global score
     sum_score(data)
     count += 1
-
-    print("in startPhsyAssessment, score: ", str(score), ", count: " + str(count))
 
     if(count <= 5):
         response_file_name = os.path.join('json_file_v2', 'assessment_s1o2_s2o2_s3_' + str(count) + '.txt')
@@ -117,6 +121,7 @@ def startPhsyAssessment(reply_token, data):
             reply_button(reply_token , response_file_name)
         else:
             line_bot_api.reply_message(reply_token,TextSendMessage(text='抱歉我還在學習中，請換個方式跟我說'))
+    return
 
 def sum_score(data):
     global score
