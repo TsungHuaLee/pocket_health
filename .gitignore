@@ -1,6 +1,6 @@
 /json_file/*.txt
 .vscode/
 pocket_health/settings.py
-
+rich-menu-id.txt
 __pycache__/
 db.sqlite3
